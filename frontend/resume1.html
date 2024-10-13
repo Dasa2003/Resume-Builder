@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Template</title>
+    <title>Align Text Right</title>
+    <style body{ padding: 0px 5%; }>
+        .right-align {
+            text-align: right;
+        }
+
+        .starting {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .skills {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .skill {
+            border-right: 1px solid orange;
+            text-align: center;
+        }
+
+        .skill:nth-child(6n) {
+            border-right: none;
+        }
+
+        page[size="A4"] {
+            width: 21cm;
+            height: 29.7cm;
+        }
+
+        page {
+            padding:30px 5%;
+            background: white;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    </head>
+    <body>
+    <page size="A4">
+        <div class="starting">
+            <div class="starting-left">
+                <h1 style=color:#16365f;>Mohanraj A</h1>
+                <h4 style=color:#d4731b;>Data Visualization Engineer</h4>
+            </div>
+            <div class="starting-right">
+                <h5 class="right-align" style="color: #999999;">+91 959 716 5596</h5>
+                <h5 class="right-align" style="color: #999999;">Chennai, INDIA</h5>
+                <h5 class="right-align"><a
+                        href="mailto:mohanraj.anbalagan@data-aces.com">mohanraj.anbalagan@data-aces</a></h5>
+            </div>
+
+        </div>
+        <hr>
+        <h3 style="color:#16365f;">PROFESSIONAL PROFILE</h3>
+        <P style="color: #999999;">Motivated Data Visualization Engineer with 3 years of experience specializing in
+            Spotfire, Power BI, SQL, and
+            Python.
+            Skilled in advanced data analytics and visualization, with a strong background in designing scalable
+            relational
+            and
+            NoSQL database solutions. Proficient in data migration and integration, complex data structures, and
+            transaction
+            management. Adept at solving technical challenges in dynamic environments, with a commitment to continuous
+            learning and improvement. Experienced in working with various databases including MySQL, Postgres, Oracle,
+            Hive,
+            and YugabyteDB.</P>
+        <hr>
+
+        <h3 style="color:#16365f;">TECH SKILLS</h3>
+        <div class="skills">
+            <p class="skill" style="color: #7f7f7f;">Power BI</p>
+            <p class="skill" style="color: #7f7f7f;">Spotfire</p>
+            <p class="skill" style="color: #7f7f7f;">Snowflake</p>
+            <p class="skill" style="color: #7f7f7f;">SSRS</p>
+            <p class="skill" style="color: #7f7f7f;">Excel</p>
+            <p class="skill" style="color: #7f7f7f;">Oracle</p>
+            <p class="skill" style="color: #7f7f7f;">DSE Graph</p>
+            <p class="skill" style="color: #7f7f7f;">MySQL</p>
+            <p class="skill" style="color: #7f7f7f;">CQL</p>
+            <p class="skill" style="color: #7f7f7f;">Linux</p>
+            <p class="skill" style="color: #7f7f7f;">Playwright</p>
+            <p class="skill" style="color: #7f7f7f;">Golang</p>
+            <p class="skill" style="color: #7f7f7f;">Python</p>
+            <p class="skill" style="color: #7f7f7f;">Django</p>
+            <p class="skill" style="color: #7f7f7f;">SQL</p>
+            <p class="skill" style="color: #7f7f7f;">PLSQL</p>
+            <p class="skill" style="color: #7f7f7f;">MLflow</p>
+            <p class="skill" style="color: #7f7f7f;">git</p>
+        </div>
+        <hr>
+
+        <div class="starting">
+            <div class="starting-left">
+                <h2 style="color:#16365f;">EDUCATION</h2>
+                <h3 style=color:#d4731b;>Bachelor’s in Mechanical Engineering</h3>
+                <h4 style="color:#7f7f7f;">KPR College of Engineering and Technology, Tamil Nadu, India</h4>
+                <h2 style="color:#16365f;">WORK EXPERIENCE</h2>
+                <h3 style="color:#16365f;">Software engineering</h3>
+                <h4 style=color:#d4731b;>Now Digital Easy • Karur, Tamil Nadu, INDIA • (2020-2022)</h4>
+                <h3 style="color:#16365f;">Software Engineer</h3>
+                <h4 style=color:#d4731b;>Data-Aces • Chennai, Tamil Nadu, INDIA • (2022 – Present)</h4>
+            </div>
+            <div class="starting-right">
+                <h3 class="right-align" style="color:#16365f;">CERTIFICATIONS/ TRAINING</h3>
+                <h5 class="right-align" style="color:#678a50;">ChatGPT (Prompt Engineering <br> and Advanced)</h5>
+                <h6 class="right-align" style="color:#898989;">exd - 2023</h6>
+                <h5 class="right-align" style="color:#678a50;">Apache Cassandra <br> certifications</h5>
+                <h6 class="right-align" style="color:#898989;">(DSE201) -2023</h6>
+                <h5 class="right-align" style="color:#678a50;">Snowflake Fundamentals <br> Training</h5>
+                <h6 class="right-align" style="color:#898989;">Snowflake • 2022</h6>
+                <h5 class="right-align" style="color:#678a50;">Oracle Database Training</h5>
+                <h6 class="right-align" style="color:#898989;">SQL & PLSQL • 2020</h6>
+
+            </div>
+        </div>
+    </page>
+    <page size="A4">
+        <h3 style="color:#16365f;">KEY PROJECTS</h3>
+        <h4 style=color:#d4731b;>ExpertSense AceDO • Offshore • Mar 2023 – Oct 2023 • Spotfire Developer &
+            Database Administrator</h4>
+        <p style="color:#7f7f7f;">• Developed Spotfire dashboards featuring bar charts, line charts, pie
+            charts, Text areas, combination charts, and summary tables to provide
+            comprehensive data insights and support decision-making processes.</p>
+        <p style="color:#7f7f7f;">• Created interactive bar charts and line charts for trend analysis and
+            performance tracking.</p>
+        <p style="color:#7f7f7f;">• Created Text Areas for dynamic data display and user interaction within
+            dashboards.</p>
+        <p style="color:#7f7f7f;">• Integrated combination charts to present complex data relationships in
+            a single visualization.</p>
+        <p style="color:#7f7f7f;">• Constructed summary tables for detailed data analysis and reporting.</p>
+        <p style="color:#7f7f7f;">• Focused primarily on creating bar charts and line charts for key
+            performance metrics and trend analyses.</p>
+        <p style="color:#7f7f7f;">• Created around 16 reports and developed over 200+ dashboards to
+            support various business needs and analytical requirements.</p>
+        <p style="color:#7f7f7f;">• Connected MySQL and Snowflake databases, and added Excel sheets
+            using custom queries to retrieve and manipulate data, ensuring
+            seamless integration and efficient data management in Spotfire.</p>
+        <p style="color:#7f7f7f;">• Managed and optimized database performance for various relational
+            and NoSQL databases, including MySQL, Postgres, Oracle, Hive, and
+            YugabyteDB.</p>
+        <p style="color:#7f7f7f;">• Implemented transaction management and data migration strategies to
+            enhance data reliability and consistency.</p>
+
+        <h4 style=color:#d4731b;>Kemet (Yageo) • Offshore • Jun 2022 to Nov 2022 • Spotfire Developer</h4>
+        <p style="color:#7f7f7f;"> • Created 32 new Spotfire reports focusing on table charts, bar charts, pie charts,
+            combination charts,
+            waterfall chart, scatter plot, heat map. tree map, and bookmarks, primarily based on financial and marketing
+            data. </p>
+        <p style="color:#7f7f7f;"> • Executed a meticulous migration of Vertica report code to IDM DB2, ensuring
+            compatibility and efficiency
+            within the new database environment.</p>
+        <p style="color:#7f7f7f;"> • Around 50+ reports were changed successfully and published to the Spotfire library.
+        </p>
+        <p style="color:#7f7f7f;"> • Conducted thorough testing of data source connectivity in Spotfire's data import
+            functionality to ensure
+            successful data import and refresh from various sources.</p>
+        <p style="color:#7f7f7f;"> • Maintained up-to-date documentation of the data transformation process for
+            transparency and knowledge sharing
+            within the team.</p>
+
+        <h4 style=color:#d4731b;>Leo Pharma • Offshore • Nov 2022 to Mar 2023 • Spotfire Developer</h4>
+        <p style="color:#7f7f7f;">• Designed and Developed new Power BI reports for Pharma-Commercial Demos,
+            incorporating prescriptions, calls,
+            and Value Trak report data, including a Sankey chart to effectively present the data and derive business
+            insights.</p>
+        <p style="color:#7f7f7f;">• Resolved slicer and bookmark issues across all tiles in the Managed Markets
+            Dashboard</p>
+        <p style="color:#7f7f7f;">• Created visuals to highlight the Top 25 Prescribers Data Type within the Product
+            Detail Tile, adding an
+            interactive feature to the Managed Markets Dashboard.</p>
+        <p style="color:#7f7f7f;">• Addressed challenges and integrated new information into the reports based on client
+            requirements. </p>
+        <h4 style=color:#d4731b;>Centennial Bank• Offshore• Dec 2020 to Sep 2021 • Power BI Developer & Backend Database
+            Engineer</h4>
+        <p style="color:#7f7f7f;">• Created complex views and materialized views on multiple tables to meet customer
+            requirements.</p>
+        <p style="color:#7f7f7f;">• Implemented indexes and table partitioning for SQL tuning purposes, improving query
+            performance.</p>
+            </page>
+            <page size="A4">
+        <p style="color:#7f7f7f;">• Developed data models, SQL queries, and schemas to support the system's
+            functionality.</p>
+        <p style="color:#7f7f7f;">• Created 10+ reports for data visualization and reporting, providing stakeholders
+            with actionable insights.</p>
+        <p style="color:#7f7f7f;">• Implemented dynamic filters and slicers to enable users to analyze data by region,
+            product category, and
+            period.</p>
+        <p style="color:#7f7f7f;">• Leveraged Power BI Service to publish reports, share insights, and collaborate with
+            team members.</p>
+        <p style="color:#7f7f7f;">• Collaborated with cross-functional teams to ensure the system met business and
+            technical requirements.</p>
+        <h4 style=color:#d4731b;>ExpertSense RepoAI • Offshore • Oct 2023 – present • Backend Developer</h4>
+        <p style="color:#7f7f7f;">• Seamlessly integrated Mistral and Llama AI models into the Django-based backend
+            infrastructure, strategically
+            optimizing performance for efficient data processing and real-time interactions.</p>
+        <p style="color:#7f7f7f;">• Solely responsible for PostgreSQL, MySQL, and YugabyteDB databases, creating tables,
+            and loading data. Managed
+            database dumps and restored them from test to production instances, ensuring smooth data migration and
+            integrity.</p>
+        <p style="color:#7f7f7f;">• Developed Rest API for MySQL and Yuga byte databases, which would include CRUD
+            operations, using Python and
+            Django Framework</p>
+        <p style="color:#7f7f7f;">• implemented Conversational Retrieval QA systems, focusing on creating natural and
+            context-aware interactions
+        </p>
+        <p style="color:#7f7f7f;">• Implemented an embedding model and utilized an embedded parquet file stored in
+            Chroma DB to handle various file
+            formats</p>
+        <p style="color:#7f7f7f;">• Explored and implemented the concepts of MLflow to track and evaluate the
+            performance of large language models
+            (LLMs). Logged various metrics and parameters during Model evaluation.</p>
+        <p style="color:#7f7f7f;">• Utilized PlanIO Agile Board as part of dev to create stories and track bugs for the
+            front-end and Onshore teams
+        </p>
+        <p style="color:#7f7f7f;">• Debugging the code using Sonar lint and conducting regular unit testing of Developed
+            code using Playwright and
+            Postman during the Development Life cycle. </p>
+        <h4 style=color:#d4731b;>AI Chatbot for Database Interaction • Offshore • Oct 2023 – Oct 2023 • Backend
+            Developer
+        </h4>
+        <p style="color:#7f7f7f;">• AI chatbot project to interact with various databases, generate queries based on
+            user questions, and provide
+            real-time results. Utilizes OpenAI and Tapas models to enhance natural language understanding and query
+            generation capabilities.</p>
+        <p style="color:#7f7f7f;">• Leveraged OpenAI and Tapas models to interpret natural language questions and
+            convert them into SQL queries for
+            
+            various relational databases such as MySQL, PostgreSQL, and SQLite.</p>
+        <p style="color:#7f7f7f;">• Implemented logic to handle complex SQL queries involving joins, filters, and
+            aggregations, ensuring accurate
+            and relevant data retrieval based on user inputs.</p>
+        <p style="color:#7f7f7f;">• Built a responsive chatbot interface using Flask, enabling real-time database
+            interactions and providing
+            immediate feedback to user queries.</p>
+        <p style="color:#7f7f7f;">• Developed secure and efficient connectors using SQLAlchemy, ensuring reliable
+            interaction with multiple
+            database systems.</p>
+    </page>
+</body>
+</html>

@@ -1,0 +1,722 @@
+..............
+StepperFor.js
+...............
+
+/*import React, { useState } from 'react';
+import Navbar from './Navbar';
+import { Stepper, Step, Button, Typography, StepLabel, Box, Card, CardContent, Container } from '@mui/material';
+import PersonalInfoStep from './steps/PersonalInfoStep';
+import ProfileStep from './steps/ProfileStep';
+import SkillsStep from './steps/SkillsStep';
+import EducationStep from './steps/EducationStep';
+import WorkExperienceStep from './steps/WorkExperienceStep';
+import CertificationsStep from './steps/CertificationsStep';
+import ProjectsStep from './steps/ProjectsStep';
+import ResumeTemplate from './ResumeTemplate';
+import axios from 'axios'; 
+
+const steps = [
+  'Personal Information',
+  'Professional Profile',
+  'Technical Skills',
+  'Education',
+  'Work Experience',
+  'Certifications',
+  'Key Projects',
+];
+
+const StepperForm = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const [formData, setFormData] = useState({
+    personalInfo: {},
+    profile: '',
+    skills: [],
+    education: [],
+    workExperience: [],
+    certifications: [],
+    projects: [],
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const { personalInfo, profile, skills, education, workExperience, certifications, projects } = formData;
+  
+      const resumeData = {
+        name: personalInfo.name,
+        job_title: personalInfo.jobTitle,
+        phone: personalInfo.phone,
+        location: personalInfo.location,
+        email: personalInfo.email,
+        user: user.user_id,  // Assuming user.id is the primary key of the user
+        profile: profile,    // Assuming profile is a string or JSON
+        skills: skills,
+        education: education.map(edu => ({
+          degree: edu.degree,
+          institution: edu.institution
+        })),
+        work_experience: workExperience.map(exp => ({
+          position: exp.position,
+          company: exp.company,
+          location: exp.location,
+          years: exp.years
+        })),
+        certifications: certifications.map(cert => ({
+          name: cert.name,
+          organization: cert.organization
+        })),
+        projects: projects.map(proj => ({
+          name: proj.name,
+          role: proj.role,
+          description: proj.description
+        }))
+      };
+  
+
+      // Make the POST request
+      await axios.post('/api/resume/create/', resumeData);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error creating resume:', error);
+      console.log('Error response:', error.response.data);
+    }
+  };
+  
+
+  const handleFormDataChange = (stepData) => {
+    setFormData({ ...formData, ...stepData });
+  };
+
+  const getStepContent = (stepIndex) => {
+    switch (stepIndex) {
+      case 0:
+        return <PersonalInfoStep onFormDataChange={handleFormDataChange} formData={formData.personalInfo} />;
+      case 1:
+        return <ProfileStep onFormDataChange={handleFormDataChange} formData={formData.profile} />;
+      case 2:
+        return <SkillsStep onFormDataChange={handleFormDataChange} formData={formData.skills} />;
+      case 3:
+        return <EducationStep onFormDataChange={handleFormDataChange} formData={formData.education} />;
+      case 4:
+        return <WorkExperienceStep onFormDataChange={handleFormDataChange} formData={formData.workExperience} />;
+      case 5:
+        return <CertificationsStep onFormDataChange={handleFormDataChange} formData={formData.certifications} />;
+      case 6:
+        return <ProjectsStep onFormDataChange={handleFormDataChange} formData={formData.projects} />;
+      default:
+        return 'Unknown stepIndex';
+    }
+  };
+
+  return (
+    <>
+      <Navbar />
+      <Container style={{ marginTop: '80px', display: 'flex', justifyContent: 'center' }}>
+        <Card style={{ width: '85%', padding: '20px' }}>
+          <CardContent>
+            <Stepper activeStep={activeStep} style={{ marginBottom: '20px' }}>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            <div>
+              {activeStep === steps.length ? (
+                <Box display="flex" flexDirection="column" alignItems="center">
+                  <Typography variant="h6" gutterBottom>
+                    All steps completed - your resume is ready!
+                  </Typography>
+                  <Button variant="contained" color="primary" onClick={handleSubmit}>
+                    Submit
+                  </Button>
+                  {isSubmitted && <ResumeTemplate formData={formData} />}
+                </Box>
+              ) : (
+                <div>
+                  <Box p={2}>{getStepContent(activeStep)}</Box>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+                    <Button disabled={activeStep === 0} onClick={handleBack}>
+                      Back
+                    </Button>
+                    <Button variant="contained" color="primary" onClick={handleNext}>
+                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </Container>
+    </>
+  );
+};
+
+export default StepperForm;*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* csrf code
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import AuthContext from '../context/AuthContext';
+import Navbar from './Navbar';
+import { Stepper, Step, Button, Typography, StepLabel, Box, Card, CardContent, Container } from '@mui/material';
+import PersonalInfoStep from './steps/PersonalInfoStep';
+import ProfileStep from './steps/ProfileStep';
+import SkillsStep from './steps/SkillsStep';
+import EducationStep from './steps/EducationStep';
+import WorkExperienceStep from './steps/WorkExperienceStep';
+import CertificationsStep from './steps/CertificationsStep';
+import ProjectsStep from './steps/ProjectsStep';
+import ResumeTemplate from './ResumeTemplate';
+
+const steps = [
+  'Personal Information',
+  'Professional Profile',
+  'Technical Skills',
+  'Education',
+  'Work Experience',
+  'Certifications',
+  'Key Projects',
+];
+
+const StepperForm = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const [formData, setFormData] = useState({
+    personalInfo: {},
+    profile: '',
+    skills: [],
+    education: [],
+    workExperience: [],
+    certifications: [],
+    projects: [],
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isPreviewing, setIsPreviewing] = useState(false);
+  const [dismissPreview, setDismissPreview] = useState(false);
+
+  const { user, authTokens } = useContext(AuthContext);
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      
+      const cookies =document.cookie.split(';').reduce((acc,cookie)=>{
+        const [name,value]=cookie.split('=');
+        acc[name]=decodeURIComponent(value);
+        return acc;
+      },{});
+      const headers = {
+        'X-CSRFToken': cookies.csrftoken,
+        'Content-type': 'application/json'
+      };
+      console.log(headers);
+      const { personalInfo, profile, skills, education, workExperience, certifications, projects } = formData;
+
+      const resumeData = {
+        name: personalInfo.name || '',
+        job_title: personalInfo.jobTitle || '',
+        phone: personalInfo.phone || '',
+        location: personalInfo.location || '',
+        email: personalInfo.email || '',
+        user: user ? user.id : '',  
+        profile: profile || '',  
+        skills: skills || [],
+        education: education.map(edu => ({
+          degree: edu.degree || '',
+          institution: edu.institution || ''
+        })),
+        work_experience: workExperience.map(exp => ({
+          position: exp.position || '',
+          company: exp.company || '',
+          location: exp.location || '',
+          years: exp.years || ''
+        })),
+        certifications: certifications.map(cert => ({
+          name: cert.name || '',
+          organization: cert.organization || ''
+        })),
+        projects: projects.map(proj => ({
+          name: proj.name || '',
+          role: proj.role || '',
+          description: proj.description || ''
+        }))
+      };
+
+      console.log('Sending resumeData:', resumeData);
+
+      // Make the POST request
+      await axios.post('/api/resume/create/', resumeData, {
+        headers
+      });
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error creating resume:', error);
+      if (error.response) {
+        console.log('Error response:', error.response.data);
+      }
+    }
+  };
+
+  const handleFormDataChange = (stepData) => {
+    setFormData({ ...formData, ...stepData });
+  };
+
+  const handlePreview = () => {
+    setIsPreviewing(true);
+    setDismissPreview(false); // Reset dismiss state when preview is opened
+  };
+
+  const handleDismissPreview = () => {
+    setIsPreviewing(false);
+    setDismissPreview(true); // Set dismiss state when preview is dismissed
+  };
+
+  const handleClickAnywhere = () => {
+    if (isPreviewing) {
+      handleDismissPreview();
+    }
+  };
+
+  const getStepContent = (stepIndex) => {
+    switch (stepIndex) {
+      case 0:
+        return <PersonalInfoStep onFormDataChange={handleFormDataChange} formData={formData.personalInfo} />;
+      case 1:
+        return <ProfileStep onFormDataChange={handleFormDataChange} formData={formData.profile} />;
+      case 2:
+        return <SkillsStep onFormDataChange={handleFormDataChange} formData={formData.skills} />;
+      case 3:
+        return <EducationStep onFormDataChange={handleFormDataChange} formData={formData.education} />;
+      case 4:
+        return <WorkExperienceStep onFormDataChange={handleFormDataChange} formData={formData.workExperience} />;
+      case 5:
+        return <CertificationsStep onFormDataChange={handleFormDataChange} formData={formData.certifications} />;
+      case 6:
+        return <ProjectsStep onFormDataChange={handleFormDataChange} formData={formData.projects} />;
+      default:
+        return 'Unknown stepIndex';
+    }
+  };
+
+  return (
+    <>
+      <Navbar />
+      <Container style={{ marginTop: '80px', display: 'flex', justifyContent: 'center' }} onClick={handleClickAnywhere}>
+        <Card style={{ width: '85%', padding: '20px' }}>
+          <CardContent>
+            <Stepper activeStep={activeStep} style={{ marginBottom: '20px' }}>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            <div>
+              {activeStep === steps.length ? (
+                <Box display="flex" flexDirection="column" alignItems="center">
+                  <Typography variant="h6" gutterBottom>
+                    All steps completed - your resume is ready!
+                  </Typography>
+                  <div style={{ display: 'flex', marginBottom: '20px' }}>
+                    <Button variant="contained" color="primary" onClick={handlePreview} style={{ marginRight: '10px' }}>
+                      Preview
+                    </Button>
+                    <Button variant="contained" color="primary" onClick={handleSubmit}>
+                      Submit
+                    </Button>
+                  </div>
+                  {isSubmitted && !dismissPreview && !isPreviewing && <ResumeTemplate formData={formData} />}
+                  {isPreviewing && <ResumeTemplate formData={formData} />}
+                </Box>
+              ) : (
+                <div>
+                  <Box p={2}>{getStepContent(activeStep)}</Box>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+                    <Button disabled={activeStep === 0} onClick={handleBack}>
+                      Back
+                    </Button>
+                    <Button variant="contained" color="primary" onClick={handleNext}>
+                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </Container>
+    </>
+  );
+};
+
+export default StepperForm;*/
+
+
+
+/*import React, { useState } from 'react';
+import { Stepper, Step, Button, StepLabel, Box, Container, Paper, Grid } from '@mui/material';
+import PersonalInfoStep from './steps/PersonalInfoStep';
+import ProfileStep from './steps/ProfileStep';
+import SkillsStep from './steps/SkillsStep';
+import WorkExperienceStep from './steps/WorkExperienceStep';
+import EducationStep from './steps/EducationStep';
+import CertificationsStep from './steps/CertificationsStep';
+import ProjectsStep from './steps/ProjectsStep';
+
+const StepperForm = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const [formData, setFormData] = useState({
+    personalInfo: {},
+    profile: '',
+    skills: [],
+    workExperience: [],
+    education: [],
+    certifications: [],
+    projects: []
+  });
+
+  const steps = [
+    'Personal Information',
+    'Professional Profile',
+    'Skills',
+    'Work Experience',
+    'Education',
+    'Certifications',
+    'Projects'
+  ];
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleFormDataChange = (newData) => {
+    setFormData((prevData) => ({ ...prevData, ...newData }));
+  };
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return <PersonalInfoStep onFormDataChange={(data) => handleFormDataChange({ personalInfo: data.personalInfo })} formData={formData.personalInfo} />;
+      case 1:
+        return <ProfileStep onFormDataChange={(data) => handleFormDataChange({ profile: data.profile })} formData={formData.profile} />;
+      case 2:
+        return <SkillsStep onFormDataChange={(data) => handleFormDataChange({ skills: data.skills })} formData={formData.skills} />;
+      case 3:
+        return <WorkExperienceStep onFormDataChange={(data) => handleFormDataChange({ workExperience: data.workExperience })} formData={formData.workExperience} />;
+      case 4:
+        return <EducationStep onFormDataChange={(data) => handleFormDataChange({ education: data.education })} formData={formData.education} />;
+      case 5:
+        return <CertificationsStep onFormDataChange={(data) => handleFormDataChange({ certifications: data.certifications })} formData={formData.certifications} />;
+      case 6:
+        return <ProjectsStep onFormDataChange={(data) => handleFormDataChange({ projects: data.projects })} formData={formData.projects} />;
+      default:
+        return 'Unknown step';
+    }
+  };
+
+  return (
+    <Container>
+      <Grid container spacing={2}>
+        <Grid item xs={3}>
+          <Stepper activeStep={activeStep} orientation="vertical">
+            {steps.map((label, index) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Grid>
+        <Grid item xs={9}>
+          <Paper elevation={3} style={{ padding: '20px' }}>
+            {getStepContent(activeStep)}
+            <Box mt={2}>
+              <Button disabled={activeStep === 0} onClick={handleBack} style={{ marginRight: '10px' }}>
+                Back
+              </Button>
+              <Button variant="contained" color="primary" onClick={handleNext}>
+                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              </Button>
+            </Box>
+          </Paper>
+        </Grid>
+      </Grid>
+    </Container>
+  );
+};
+
+export default StepperForm;*/
+
+
+
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import AuthContext from '../context/AuthContext';
+import Navbar from './Navbar';
+import { Stepper, Step, Button, Typography, StepLabel, Box, Container } from '@mui/material';
+import PersonalInfoStep from './steps/PersonalInfoStep';
+import ProfileStep from './steps/ProfileStep';
+import SkillsStep from './steps/SkillsStep';
+import EducationStep from './steps/EducationStep';
+import WorkExperienceStep from './steps/WorkExperienceStep';
+import CertificationsStep from './steps/CertificationsStep';
+import ProjectsStep from './steps/ProjectsStep';
+import ResumeTemplate from './ResumeTemplate';
+
+const steps = [
+  'Personal Information',
+  'Professional Profile',
+  'Technical Skills',
+  'Education',
+  'Work Experience',
+  'Certifications',
+  'Key Projects',
+];
+
+const StepperForm = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const [formData, setFormData] = useState({
+    personalInfo: {},
+    profile: '',
+    skills: [],
+    education: [],
+    workExperience: [],
+    certifications: [],
+    projects: [],
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isPreviewing, setIsPreviewing] = useState(false);
+  const [dismissPreview, setDismissPreview] = useState(false);
+
+  const { user, authTokens } = useContext(AuthContext);
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const { personalInfo, profile, skills, education, workExperience, certifications, projects } = formData;
+
+      const resumeData = {
+        name: personalInfo.name || '',
+        job_title: personalInfo.jobTitle || '',
+        phone: personalInfo.phone || '',
+        location: personalInfo.location || '',
+        email: personalInfo.email || '',
+        user: user ? user.id : '',  
+        profile: profile || '',  
+        skills: skills || [],
+        education: education.map(edu => ({
+          degree: edu.degree || '',
+          institution: edu.institution || ''
+        })),
+        work_experience: workExperience.map(exp => ({
+          position: exp.position || '',
+          company: exp.company || '',
+          location: exp.location || '',
+          years: exp.years || ''
+        })),
+        certifications: certifications.map(cert => ({
+          name: cert.name || '',
+          organization: cert.organization || ''
+        })),
+        projects: projects.map(proj => ({
+          name: proj.name || '',
+          role: proj.role || '',
+          description: proj.description || ''
+        }))
+      };
+
+      console.log('Sending resumeData:', resumeData);
+
+      // Make the POST request
+      await axios.post('/api/resume/create/', resumeData, {
+        headers: {
+          'Authorization': `Bearer ${authTokens.access}`
+        }
+      });
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error creating resume:', error);
+      if (error.response) {
+        console.log('Error response:', error.response.data);
+      }
+    }
+  };
+
+  const handleFormDataChange = (stepData) => {
+    setFormData({ ...formData, ...stepData });
+  };
+
+  const handlePreview = () => {
+    setIsPreviewing(true);
+    setDismissPreview(false); // Reset dismiss state when preview is opened
+  };
+
+  const handleDismissPreview = () => {
+    setIsPreviewing(false);
+    setDismissPreview(true); // Set dismiss state when preview is dismissed
+  };
+
+  const handleClickAnywhere = () => {
+    if (isPreviewing) {
+      handleDismissPreview();
+    }
+  };
+
+  const getStepContent = (stepIndex) => {
+    switch (stepIndex) {
+      case 0:
+        return <PersonalInfoStep onFormDataChange={handleFormDataChange} formData={formData.personalInfo} />;
+      case 1:
+        return <ProfileStep onFormDataChange={handleFormDataChange} formData={formData.profile} />;
+      case 2:
+        return <SkillsStep onFormDataChange={handleFormDataChange} formData={formData.skills} />;
+      case 3:
+        return <EducationStep onFormDataChange={handleFormDataChange} formData={formData.education} />;
+      case 4:
+        return <WorkExperienceStep onFormDataChange={handleFormDataChange} formData={formData.workExperience} />;
+      case 5:
+        return <CertificationsStep onFormDataChange={handleFormDataChange} formData={formData.certifications} />;
+      case 6:
+        return <ProjectsStep onFormDataChange={handleFormDataChange} formData={formData.projects} />;
+      default:
+        return 'Unknown stepIndex';
+    }
+  };
+
+  return (
+    <>
+      <Navbar />
+      <Container style={{ marginTop: '80px', display: 'flex', justifyContent: 'center' }} onClick={handleClickAnywhere}>
+        <Stepper activeStep={activeStep} style={{ marginBottom: '20px' }}>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        <div>
+          {activeStep === steps.length ? (
+            <Box display="flex" flexDirection="column" alignItems="center">
+              <Typography variant="h6" gutterBottom>
+                All steps completed - your resume is ready!
+              </Typography>
+              <div style={{ display: 'flex', marginBottom: '20px' }}>
+                <Button variant="contained" color="primary" onClick={handlePreview} style={{ marginRight: '10px' }}>
+                  Preview
+                </Button>
+                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                  Submit
+                </Button>
+              </div>
+              {isSubmitted && !dismissPreview && !isPreviewing && <ResumeTemplate formData={formData} />}
+              {isPreviewing && <ResumeTemplate formData={formData} />}
+            </Box>
+          ) : (
+            <div>
+              <Box p={2}>{getStepContent(activeStep)}</Box>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+                <Button disabled={activeStep === 0} onClick={handleBack}>
+                  Back
+                </Button>
+                <Button variant="contained" color="primary" onClick={handleNext}>
+                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </Container>
+    </>
+  );
+};
+
+export default StepperForm;
+
+
+..........................
+LOGIN
+..........................
+
+class LoginFunction(ObtainAuthToken):
+    # login function with response of user name , id and their role
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [AllowAny]
+ 
+    def post(self, request):
+        serializer = UserLoginSerializer(data=request.data)
+        if serializer.is_valid():
+            email = serializer.validated_data['email']
+            password = serializer.validated_data['password']
+            print(email, password)
+ 
+            user = authenticate(request, email=email, password=password)
+            print(user)
+            if user is not None:
+                login(request, user)
+                logged_user = User.objects.get(email=email)
+                logger.info("User '%s -%s' has logged in", logged_user.user_name, logged_user.id)
+                return Response({'result': True,'user_name': logged_user.user_name,'user_id':logged_user.id,'role':logged_user.role},status=status.HTTP_200_OK)
+            else:
+                logger.error("Unknown user - %s", request.data['email'])
+                return Response({'result': False, 'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        logger.error("Invalid credentials for %s", serializer.errors)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+...................
+LOGOUT
+...................
+
+
+class LogoutFunction(ObtainAuthToken):
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [AllowAny]
+ 
+    def get(self, request):
+    # log out function to remove session details
+        try:
+            logout(request)
+            return Response({'result': True, 'message': 'Logged out successfully'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            logger.error("Error Message: %s",e)
+            return Response({'result': False, 'message': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
